@@ -99,7 +99,6 @@ def delete_one_sandwich(sandwich_id: int, db: Session = Depends(get_db)):
 
 # -------------------- Resources -------------------- #
 
-
 @app.post("/resources/", response_model=schemas.Resource, tags=["Resources"])
 def create_resource(resource: schemas.ResourceCreate, db: Session = Depends(get_db)):
     return resources.create(db=db, resource=resource)
@@ -136,7 +135,6 @@ def delete_one_resource(resource_id: int, db: Session = Depends(get_db)):
     if resource_db is None:
         raise HTTPException(status_code=404, detail="Resource not found")
     return resources.delete(db=db, resource_id=resource_id)
-
 
 # -------------------- Recipes -------------------- #
 
@@ -179,7 +177,6 @@ def delete_one_recipe(recipe_id: int, db: Session = Depends(get_db)):
     if recipe_db is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
     return recipes.delete(db=db, recipe_id=recipe_id)
-
 
 # -------------------- Order Details -------------------- #
 
